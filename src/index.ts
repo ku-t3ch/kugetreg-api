@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import cron from "node-cron";
+import authRoute from "./routes/auth";
 
 const kugetregFetch = async () => {
     const response = await fetch("https://kugetreg.teerut.com");
@@ -21,12 +22,14 @@ const kugetregApiFetch = async () => {
 
 // every 40 seconds
 cron.schedule("*/40 * * * * *", () => {
-    console.log("running a task every 50 seconds for kugetreg");
+    console.log("running a task every 40 seconds for kugetreg");
     kugetregFetch();
     kugetregApiFetch();
 });
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const app = new Elysia()
+.use(authRoute)
+.listen(3000);
 
 console.log(
     `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
