@@ -47,11 +47,9 @@ const SignInService = async (props: ISignInServiceInput) => {
                 },
             }
         );
-
-        console.log(res.data);
-
         return res.data;
     } catch (error) {
+        console.log(error);
         throw error;
     }
 };
