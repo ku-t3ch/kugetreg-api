@@ -14,4 +14,5 @@ COPY tsconfig.json .
 ENV NODE_ENV production
 CMD ["bun", "src/index.ts"]
 
+ENV HOSTNAME "0.0.0.0"
 EXPOSE 3000
