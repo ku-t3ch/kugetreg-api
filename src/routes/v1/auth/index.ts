@@ -16,7 +16,7 @@ authRoute.post(
             if (error instanceof AxiosError) {
                 return {
                     status: error.response?.status,
-                    message: error.response?.data,
+                    message: error.response?.data ?? error.message,
                 };
             }
         }
