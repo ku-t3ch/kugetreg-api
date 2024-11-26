@@ -6,7 +6,7 @@ const encodeString = (str: string) => {
     return crypto
         .publicEncrypt(
             {
-                key: process.env.MYKU_PUBLIC_KEY!.replace(/\\n/gm, "\n"),
+                key: Bun.env.MYKU_PUBLIC_KEY!.replace(/\\n/gm, "\n"),
                 padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
             },
             new Uint8Array(Buffer.from(str, "utf8"))
