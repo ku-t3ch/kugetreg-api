@@ -32,6 +32,7 @@ const SignInService = async (props: ISignInServiceInput) => {
                     authority: "myapi.ku.th",
                     accept: "*/*",
                     "accept-language": "en-US,en;q=0.9,th-TH;q=0.8,th;q=0.7",
+                    "app-key": "txCR5732xYYWDGdd49M3R19o1OVwdRFc",
                     "content-type": "application/json",
                     origin: "https://my.ku.th",
                     referer: "https://my.ku.th/",
