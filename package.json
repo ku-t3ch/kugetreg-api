@@ -10,6 +10,7 @@
     "node-cron": "^3.0.3"
   },
   "devDependencies": {
+    "@types/node-cron": "^3.0.11",
     "bun-types": "latest"
   },
   "module": "src/index.js"
