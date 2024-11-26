@@ -1,6 +1,7 @@
 import { Elysia } from "elysia";
 import cron from "node-cron";
-import authRoute from "./routes/auth";
+import swagger from "@elysiajs/swagger";
+import v1Route from "./routes/v1";
 
 const kugetregFetch = async () => {
     const response = await fetch("https://kugetreg.teerut.com");
@@ -28,8 +29,18 @@ cron.schedule("*/40 * * * * *", () => {
 });
 
 const app = new Elysia()
-.use(authRoute)
-.listen(3000);
+    .use(
+        swagger({
+            path: "/v1/swagger",
+            documentation: {
+                tags: [
+                    { name: "Auth", description: "Authentication endpoints" },
+                ],
+            },
+        })
+    )
+    .use(v1Route)
+    .listen(3000);
 
 console.log(
     `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`

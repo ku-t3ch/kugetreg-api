@@ -1,5 +1,5 @@
 import { Elysia, t } from "elysia";
-import SignInService from "../../services/signIn.service";
+import SignInService from "../../../services/signIn.service";
 import { AxiosError } from "axios";
 
 const authRoute = new Elysia({
@@ -26,6 +26,9 @@ authRoute.post(
             username: t.String(),
             password: t.String(),
         }),
+        detail: {
+            tags: ["Auth"],
+        },
     }
 );
 
