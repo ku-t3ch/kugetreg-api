@@ -26,6 +26,9 @@ const SignInService = async (props: ISignInServiceInput) => {
             password: encodeString(props.password),
         });
 
+        console.log(res.data);
+        
+
         return res.data;
     } catch (error) {
         throw error;

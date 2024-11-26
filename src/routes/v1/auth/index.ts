@@ -23,8 +23,12 @@ authRoute.post(
     },
     {
         body: t.Object({
-            username: t.String(),
-            password: t.String(),
+            username: t.String({
+                minLength: 1,
+            }),
+            password: t.String({
+                minLength: 1,
+            }),
         }),
         detail: {
             tags: ["Auth"],
