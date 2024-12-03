@@ -23,7 +23,7 @@ const kugetregApiFetch = async () => {
 
 // every 20 seconds
 cron.schedule("*/20 * * * * *", () => {
-    console.log(`[${new Date().toLocaleString("th-TH")}] running a task every 40 seconds for kugetreg`);
+    console.log(`[${new Date().toLocaleString("th-TH")}] running a task every 20 seconds for kugetreg`);
     kugetregFetch();
     kugetregApiFetch();
 });
