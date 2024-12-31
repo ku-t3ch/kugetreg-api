@@ -1,5 +1,5 @@
 {
-  "name": "kugetreg-api",
+  "name": "youtube-karaoke-api",
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,10 +10,12 @@
     "axios": "^1.7.8",
     "crypto": "^1.0.1",
     "elysia": "latest",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "yt-search": "^2.12.1"
   },
   "devDependencies": {
     "@types/node-cron": "^3.0.11",
+    "@types/yt-search": "^2.10.3",
     "bun-types": "latest"
   },
   "module": "src/index.js"

@@ -1,12 +1,10 @@
 import Elysia from "elysia";
-import authRoute from "./auth";
-import testRoute from "./test.route";
+import searchRoute from "./searchSong";
 
 const v1Route = new Elysia({
     prefix: "/v1",
 });
 
-v1Route.use(authRoute);
-v1Route.use(testRoute);
+v1Route.use(searchRoute);
 
 export default v1Route;

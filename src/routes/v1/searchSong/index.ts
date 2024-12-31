@@ -1,16 +1,16 @@
 import { Elysia, t } from "elysia";
-import SignInService from "../../../services/signIn.service";
 import { AxiosError } from "axios";
+import SearchSongService from "../../../services/searchSong.service";
 
-const authRoute = new Elysia({
-    prefix: "/auth",
+const searchRoute = new Elysia({
+    prefix: "/search",
 });
 
-authRoute.post(
-    "/login",
+searchRoute.post(
+    "/song",
     async ({ body }) => {
         try {
-            const response = await SignInService(body);
+            const response = await SearchSongService(body);
             return response;
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -23,10 +23,7 @@ authRoute.post(
     },
     {
         body: t.Object({
-            username: t.String({
-                minLength: 1,
-            }),
-            password: t.String({
+            query: t.String({
                 minLength: 1,
             }),
         }),
@@ -36,4 +33,4 @@ authRoute.post(
     }
 );
 
-export default authRoute;
+export default searchRoute;
